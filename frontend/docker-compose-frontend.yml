@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  shell:
+    build:
+      context: ./packages/shell
+    ports:
+      - "3000:3000"
+
+  ride-microfrontend:
+    build:
+      context: ./packages/ride-microfrontend
+    ports:
+      - "3001:3001"
+
+  user-microfrontend:
+    build:
+      context: ./packages/user-microfrontend
+    ports:
+      - "3002:3002"

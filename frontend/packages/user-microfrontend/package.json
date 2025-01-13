@@ -1,0 +1,44 @@
+{
+  "name": "user",
+  "version": "1.0.0",
+  "description": "remote package",
+  "author": "m.rastegar",
+  "license": "MIT",
+  "dependencies": {
+    "@react-google-maps/api": "^2.20.5",
+    "@reduxjs/toolkit": "^2.5.0",
+    "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
+    "react": "^19.0.0",
+    "react-bootstrap": "^2.10.7",
+    "react-dom": "^19.0.0",
+    "react-leaflet": "^5.0.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.1.1",
+    "redux": "^5.0.1",
+    "resolve-cwd": "^3.0.0"
+  },
+  "scripts": {
+    "start": "webpack --watch --config configs/webpack.dev.js",
+    "build": "webpack --progress --config configs/webpack.prod.js",
+    "serve": "webpack serve --config configs/webpack.dev.js",
+    "dev": "npm-run-all --parallel start serve",
+    "tscheck": "tsc"
+  },
+  "devDependencies": {
+    "@module-federation/typescript": "3.1.3",
+    "@types/react": "19.0.6",
+    "@types/react-dom": "19.0.3",
+    "babel-loader": "9.2.1",
+    "core-js": "3.40.0",
+    "html-webpack-plugin": "5.6.3",
+    "npm-run-all": "4.1.5",
+    "regenerator-runtime": "0.14.1",
+    "ts-loader": "9.5.2",
+    "typescript": "5.7.3",
+    "webpack": "5.97.1",
+    "webpack-cli": "6.0.1",
+    "webpack-dev-server": "5.2.0",
+    "webpack-merge": "6.0.1"
+  }
+}
