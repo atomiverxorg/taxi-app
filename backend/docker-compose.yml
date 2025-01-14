@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  ride-service:
+    build:
+      context: ./ride-service
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=development
+      - PORT=4000
+    depends_on:
+      - cassandra
+      - kafka
+
+  user-service:
+    build:
+      context: ./user-service
+    ports:
+      - "4001:4001"
+    environment:
+      - NODE_ENV=development
+      - PORT=4001
+
+  cassandra:
+    image: cassandra:4.0
+    ports:
+      - "9042:9042"
+
+  kafka:
+    image: bitnami/kafka:latest
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+
+  zookeeper:
+    image: bitnami/zookeeper:latest
+    ports:
+      - "2181:2181"
